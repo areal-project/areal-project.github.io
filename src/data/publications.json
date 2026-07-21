@@ -1,0 +1,66 @@
+[
+  {
+    "image": "img/areal/paper1.png",
+    "meta": "2026 · Technical Report",
+    "title": "Next-Generation Agentic Reinforcement Learning Systems Enable Self-Evolving Agents",
+    "abstract": "A microservice-based redesign of AReaL that decouples training, inference, agent execution and weight-update into independent services — enabling long-horizon, self-evolving agents at scale.",
+    "actions": [
+      {
+        "label": "Read paper",
+        "href": "https://arxiv.org/abs/2607.01120"
+      },
+      {
+        "label": "Code",
+        "href": "https://github.com/areal-project/AReaL"
+      }
+    ]
+  },
+  {
+    "image": "img/areal/paper2.png",
+    "meta": "2026 · Paper",
+    "title": "Post-training Multi-turn Interactive Tool-using Agents with Verifiable Rewards",
+    "abstract": "AReaL-SEA, a self-evolving data-synthesis engine paired with RL training. A 235B MoE surpasses GPT-5 and matches Gemini 3.0 Pro on τ²-bench.",
+    "actions": [
+      {
+        "label": "Read paper",
+        "href": "https://arxiv.org/abs/2601.22607"
+      },
+      {
+        "label": "Model",
+        "href": "https://huggingface.co/inclusionAI/AReaL-SEA-235B-A22B"
+      }
+    ]
+  },
+  {
+    "image": "img/areal/paper3.png",
+    "meta": "2026 · Paper",
+    "title": "AReaL-DTA: Dynamic Tree Attention for Efficient Reinforcement Learning of Large Language Models",
+    "abstract": "A DFS-based dynamic tree attention that exploits shared rollout prefixes during RL post-training — up to 8.31× throughput over dense training on τ²-bench, with a load-balanced distributed batching scheme across GPUs.",
+    "actions": [
+      {
+        "label": "Read paper",
+        "href": "https://arxiv.org/abs/2602.00482"
+      },
+      {
+        "label": "Code",
+        "href": "https://github.com/areal-project/AReaL/tree/feat/dta"
+      }
+    ]
+  },
+  {
+    "image": "img/areal/paper4.png",
+    "meta": "2025 · Paper",
+    "title": "AReaL: A Large-Scale Asynchronous Reinforcement Learning System for Language Reasoning",
+    "abstract": "The original AReaL system paper — a fully asynchronous training paradigm that achieves 2.77× speedup while matching or exceeding synchronous baselines on reasoning benchmarks.",
+    "actions": [
+      {
+        "label": "Read paper",
+        "href": "https://arxiv.org/abs/2505.24298"
+      },
+      {
+        "label": "Docs",
+        "href": "https://areal-project.github.io/AReaL/"
+      }
+    ]
+  }
+]

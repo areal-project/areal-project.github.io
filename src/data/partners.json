@@ -1,0 +1,22 @@
+[
+  {
+    "name": "PyTorch",
+    "logo": "img/areal/pytorch-logo.png",
+    "href": "https://pytorch.org"
+  },
+  {
+    "name": "Megatron-LM",
+    "logo": "img/areal/nvidia-logo.svg",
+    "href": "https://github.com/NVIDIA/Megatron-LM"
+  },
+  {
+    "name": "SGLang",
+    "logo": "img/areal/sglang-logo.png",
+    "href": "https://github.com/sgl-project/sglang"
+  },
+  {
+    "name": "vLLM",
+    "logo": "img/areal/vllm-logo.png",
+    "href": "https://github.com/vllm-project/vllm"
+  }
+]

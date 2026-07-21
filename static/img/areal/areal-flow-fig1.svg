@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="30 30 1940 890" role="img"
+     aria-label="AReaL loop: users exchange tasks, rewards and responses with the Agent Service; the Agent Service sends prompts to and receives tool calls from the Inference Service; the Inference Service streams rollout data to the Training Service, which pushes weight updates back to inference.">
+  <defs>
+    <style>
+      /* ---------- palette (matches landing.html tokens) ---------- */
+      /* ink #0f1012 · text #3a3d44 · muted #8b8f97 · accent #14a66f  */
+
+      .sans  { font-family: "Host Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif; }
+      .mono  { font-family: ui-monospace, "SF Mono", "SFMono-Regular", Menlo, Consolas, monospace; }
+
+      .title   { font-size: 36px; font-weight: 600; fill: #0f1012; letter-spacing: -0.01em; }
+      .m-ink   { font-size: 21px; fill: #3a3d44; }
+      .m-mut   { font-size: 20px; fill: #8b8f97; }
+      .edge    { font-size: 20px; fill: #8b8f97; letter-spacing: 0.04em; }
+      .center-lb { font-size: 21px; fill: #9aa0a8; letter-spacing: 0.22em; }
+
+      .node    { fill: #ffffff; stroke: rgba(15,16,18,0.40); stroke-width: 1.5; }
+      .pill    { fill: #ffffff; stroke: rgba(15,16,18,0.38); stroke-width: 1.4; stroke-dasharray: 5 7; }
+      .divider { stroke: rgba(15,16,18,0.08); stroke-width: 1; }
+      .conn    { fill: none; stroke: rgba(15,16,18,0.26); stroke-width: 1.6; }
+      .ring    { fill: none; stroke: rgba(15,16,18,0.16); stroke-width: 1.3; stroke-dasharray: 3 9; }
+      .mark    { stroke: rgba(15,16,18,0.30); stroke-width: 1.4; }
+
+      /* ---------- motion: every link flows both ways ---------- */
+      .flow {
+        fill: none; stroke: #14a66f; stroke-width: 3;
+        stroke-linecap: round; stroke-dasharray: 2 16;
+        animation: dash 3.2s linear infinite;
+      }
+      .flow.d1 { animation-delay: -0.6s; }
+      .flow.d2 { animation-delay: -1.4s; }
+      .flow.d3 { animation-delay: -2.2s; }
+      @keyframes dash { to { stroke-dashoffset: -90; } }
+
+      .fi { opacity: 0; animation: fadeUp 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards; }
+      .fi-1 { animation-delay: 0.05s; } .fi-2 { animation-delay: 0.22s; }
+      .fi-3 { animation-delay: 0.39s; } .fi-4 { animation-delay: 0.56s; }
+      .fi-5 { animation-delay: 0.73s; } .fi-6 { animation-delay: 0.90s; }
+      .fi-7 { animation-delay: 1.07s; } .fi-8 { animation-delay: 1.24s; }
+      @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); }
+                          to   { opacity: 1; transform: translateY(0); } }
+
+      /* metric-updated tick: policy version flashes accent green */
+      .flash-w  { font-weight: 600; animation: flash 5.6s ease-in-out 2.8s infinite; }
+      @keyframes flash {
+        0%, 55%, 73%, 100% { fill: #0f1012; }
+        60%, 68%           { fill: #14a66f; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .fi { animation: none; opacity: 1; }
+        .flow, .flash-w { animation: none; }
+        .flash-w { fill: #0f1012; }
+      }
+    </style>
+
+    <!-- faint blueprint substrate: plus-lattice -->
+    <pattern id="plusGrid" width="56" height="56" patternUnits="userSpaceOnUse">
+      <path d="M28 22 V34 M22 28 H34" stroke="#0f1012" stroke-opacity="0.055" stroke-width="1" fill="none"/>
+    </pattern>
+
+    <marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="rgba(15,16,18,0.36)"/>
+    </marker>
+  </defs>
+
+  <!-- ================= figure chrome ================= -->
+  <rect x="60" y="60" width="1880" height="830" fill="url(#plusGrid)"/>
+
+  <!-- corner registration marks -->
+  <g class="mark" fill="none">
+    <path d="M53 70 h14 M60 63 v14"/>
+    <path d="M1933 70 h14 M1940 63 v14"/>
+    <path d="M53 880 h14 M60 873 v14"/>
+    <path d="M1933 880 h14 M1940 873 v14"/>
+  </g>
+
+  <!-- ================= edges ================= -->
+
+  <!-- User ⇄ Agent Service -->
+  <g class="fi fi-2">
+    <path class="conn" d="M610 235 H1382" marker-end="url(#ah)"/>
+    <path class="conn" d="M1390 315 H618" marker-end="url(#ah)"/>
+    <text class="mono edge" x="1000" y="200" text-anchor="middle">tasks · rewards</text>
+    <text class="mono edge" x="1000" y="357" text-anchor="middle">responses · human-readable</text>
+  </g>
+
+  <!-- Agent Service ⇄ Inference Service -->
+  <g class="fi fi-4">
+    <path class="conn" d="M1560 400 V612" marker-end="url(#ah)"/>
+    <path class="conn" d="M1690 612 V408" marker-end="url(#ah)"/>
+    <text class="mono edge" x="1534" y="516" text-anchor="end">prompt</text>
+    <text class="mono edge" x="1716" y="516">tool calls</text>
+  </g>
+
+  <!-- Inference Service ⇄ Training Service -->
+  <g class="fi fi-6">
+    <path class="conn" d="M1390 700 H618" marker-end="url(#ah)"/>
+    <text class="mono edge" x="1000" y="665" text-anchor="middle">rollout data</text>
+
+    <path class="conn" d="M610 780 H852"/>
+    <path class="conn" d="M1148 780 H1382" marker-end="url(#ah)"/>
+    <rect class="pill" x="860" y="748" width="280" height="64" rx="32"/>
+    <text class="mono m-ink" x="1000" y="787" text-anchor="middle">WEIGHT UPDATE</text>
+    <text class="mono edge" x="1000" y="846" text-anchor="middle">Δθ · non-blocking</text>
+  </g>
+
+  <!-- animated flows, both directions on every link -->
+  <path class="flow"    d="M610 235 H1382"/>
+  <path class="flow d2" d="M1390 315 H618"/>
+  <path class="flow d1" d="M1560 400 V612"/>
+  <path class="flow d3" d="M1690 612 V408"/>
+  <path class="flow d2" d="M1390 700 H618"/>
+  <path class="flow d3" d="M610 780 H852"/>
+  <path class="flow d3" d="M1148 780 H1382"/>
+
+  <!-- ================= nodes (uniform 460 × 250, centered content) ================= -->
+
+  <!-- USER -->
+  <g class="fi fi-1">
+    <rect class="node" x="150" y="150" width="460" height="250" rx="14"/>
+    <text class="sans title" x="380" y="238" text-anchor="middle">User</text>
+    <line class="divider" x1="178" y1="266" x2="582" y2="266"/>
+    <text class="mono m-ink" x="380" y="308" text-anchor="middle">tasks · prompts</text>
+    <text class="mono m-mut" x="380" y="342" text-anchor="middle">reward · feedback</text>
+  </g>
+
+  <!-- AGENT SERVICE (with internal harness) -->
+  <g class="fi fi-3">
+    <rect class="node" x="1390" y="150" width="460" height="250" rx="14"/>
+    <text class="sans title" x="1620" y="238" text-anchor="middle">Agent Service</text>
+    <line class="divider" x1="1418" y1="266" x2="1822" y2="266"/>
+    <rect class="pill" x="1421" y="284" width="110" height="50" rx="25"/>
+    <text class="mono m-mut" x="1476" y="316" text-anchor="middle">ENV</text>
+    <rect class="pill" x="1545" y="284" width="140" height="50" rx="25"/>
+    <text class="mono m-mut" x="1615" y="316" text-anchor="middle">MEMORY</text>
+    <rect class="pill" x="1699" y="284" width="120" height="50" rx="25"/>
+    <text class="mono m-mut" x="1759" y="316" text-anchor="middle">TOOLS</text>
+    <text class="mono m-mut" x="1620" y="374" text-anchor="middle">extensible agent harness</text>
+  </g>
+
+  <!-- INFERENCE SERVICE -->
+  <g class="fi fi-5">
+    <rect class="node" x="1390" y="620" width="460" height="250" rx="14"/>
+    <text class="sans title" x="1620" y="708" text-anchor="middle">Inference Service</text>
+    <line class="divider" x1="1418" y1="736" x2="1822" y2="736"/>
+    <text class="mono m-ink" x="1620" y="778" text-anchor="middle">generation · serving</text>
+    <text class="mono m-mut" x="1620" y="812" text-anchor="middle">policy v127 → <tspan class="flash-w" fill="#0f1012">v128</tspan></text>
+  </g>
+
+  <!-- TRAINING SERVICE -->
+  <g class="fi fi-7">
+    <rect class="node" x="150" y="620" width="460" height="250" rx="14"/>
+    <text class="sans title" x="380" y="708" text-anchor="middle">Training Service</text>
+    <line class="divider" x1="178" y1="736" x2="582" y2="736"/>
+    <text class="mono m-ink" x="380" y="778" text-anchor="middle">RL algorithms</text>
+    <text class="mono m-mut" x="380" y="812" text-anchor="middle">distributed backends</text>
+  </g>
+
+  <!-- ================= async flywheel ================= -->
+  <g class="fi fi-8">
+    <circle class="ring" cx="1000" cy="506" r="112">
+      <animateTransform attributeName="transform" type="rotate"
+        from="0 1000 506" to="360 1000 506" dur="60s" repeatCount="indefinite"/>
+    </circle>
+    <g>
+      <circle cx="1000" cy="394" r="5.5" fill="#14a66f"/>
+      <circle cx="1000" cy="394" r="10" fill="none" stroke="#14a66f" stroke-opacity="0.35" stroke-width="1.5"/>
+      <animateTransform attributeName="transform" type="rotate"
+        from="0 1000 506" to="360 1000 506" dur="13s" repeatCount="indefinite"/>
+    </g>
+    <text class="mono center-lb" x="1000" y="498" text-anchor="middle">FULLY ASYNCHRONOUS</text>
+    <text class="mono center-lb" x="1000" y="530" text-anchor="middle">SELF-EVOLVING LOOP</text>
+  </g>
+</svg>
