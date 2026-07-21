@@ -351,11 +351,22 @@ function Hero(): ReactNode {
     <section className={`${styles.section} ${styles.hero}`}>
       <div className={styles.container}>
         <Heading as="h1" className={styles.heroHeadline}>
-          what&apos;s AReaL
+          What&apos;s AReaL
         </Heading>
         <p className={styles.heroSub}>
           A reinforcement learning (RL) infrastructure designed to bridge
           foundation model training with modern agent-based applications.
+        </p>
+        <p className="font-small text-lg text-gray-700 dark:text-gray-300">
+          We are part of the{" "}
+          <a
+            href="https://landscape.pytorch.org/?item=training--distributed--areal"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            PyTorch Foundation Landscape Project
+          </a>
+          .
         </p>
         <div
           className={styles.heroVisual}

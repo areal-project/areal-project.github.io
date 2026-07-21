@@ -324,27 +324,6 @@
   text-decoration: none;
 }
 
-/* -------- Dark mode -------- */
-[data-theme="dark"] .landing {
-  --ink: #f3f4f6;
-  --text: #c7cad1;
-  --muted: #8b8f97;
-  --faint: #1c1e22;
-  --line: rgba(255, 255, 255, 0.12);
-  --line-strong: rgba(255, 255, 255, 0.28);
-  --bg: #0f1012;
-}
-
-[data-theme="dark"] .card,
-[data-theme="dark"] .partnerTile {
-  background: #16181c;
-}
-
-[data-theme="dark"] .paperBtn:hover {
-  background: var(--ink);
-  color: #0f1012;
-}
-
 /* -------- Responsive -------- */
 @media (max-width: 996px) {
   .cardGrid {

@@ -85,7 +85,9 @@ const config: Config = {
     // Replace with your project's social card
     image: "img/docusaurus-social-card.jpg",
     colorMode: {
-      respectPrefersColorScheme: true,
+      defaultMode: "light",
+      disableSwitch: true,
+      respectPrefersColorScheme: false,
     },
     navbar: {
       title: "AReaL",
@@ -115,8 +117,12 @@ const config: Config = {
           title: "Docs",
           items: [
             {
-              label: "Getting Started",
-              to: "https://areal-ai.io/docs/getting-started",
+              label: "Intro",
+              to: "https://areal-ai.io/docs/en/intro.html",
+            },
+            {
+              label: "Key Milestones",
+              to: "https://areal-ai.io/docs/en/version_history.html",
             },
           ],
         },
@@ -137,10 +143,6 @@ const config: Config = {
           title: "More",
           items: [
             {
-              label: "GitHub",
-              href: "https://github.com/areal-project/AReaL",
-            },
-            {
               label: "Community",
               to: "https://github.com/areal-project/community",
             },
@@ -151,11 +153,11 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Since 2025 - ${new Date().getFullYear()} The AReaL Project, We 💖 Open Source and welcome you to joining us.`,
+      copyright: `Since 2025 - ${new Date().getFullYear()} The AReaL Project,
+      <br />We 💖 Open Source, and welcome you to joining us.`,
     },
     prism: {
       theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
     },
   } satisfies Preset.ThemeConfig,
 };
