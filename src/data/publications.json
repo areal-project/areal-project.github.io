@@ -1,5 +1,21 @@
 [
   {
+    "image": "img/areal/DTE.png",
+    "meta": "2026 · Paper",
+    "title": "AReaL-DTE: Sparse Policy-Weight Transfer for Online Agentic Reinforcement Learning",
+    "abstract": "A snapshot-free Delta Transfer Engine that translates inference-visible weight sparsity into end-to-end system efficiency.",
+    "actions": [
+      {
+        "label": "Read paper",
+        "href": "https://arxiv.org/abs/2608.00455"
+      },
+      {
+        "label": "Code",
+        "href": "https://github.com/areal-project/AReaL-DTE"
+      }
+    ]
+  },
+  {
     "image": "img/areal/paper1.png",
     "meta": "2026 · Technical Report",
     "title": "Next-Generation Agentic Reinforcement Learning Systems Enable Self-Evolving Agents",
