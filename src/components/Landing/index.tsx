@@ -5,6 +5,7 @@ import Heading from "@theme/Heading";
 
 import publications from "@site/src/data/publications.json";
 import partners from "@site/src/data/partners.json";
+import developerArticles from "@site/src/data/developerArticles.json";
 
 import styles from "./styles.module.css";
 
@@ -408,6 +409,62 @@ function UseSection(): ReactNode {
   );
 }
 
+function DeveloperArticlesSection(): ReactNode {
+  if (developerArticles.length === 0) return null;
+
+  const renderArticle = (article: (typeof developerArticles)[number]) => (
+    <li key={article.href}>
+      <a
+        className={styles.developerArticleLink}
+        href={article.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`${article.title} (opens in a new tab)`}
+      >
+        <span className={styles.developerArticleTitle}>{article.title}</span>
+        <span className={styles.developerArticleArrow} aria-hidden="true">
+          ↗
+        </span>
+      </a>
+    </li>
+  );
+
+  return (
+    <section
+      className={`${styles.section} ${styles.developerSection}`}
+      id="developers"
+      aria-labelledby="developers-title"
+    >
+      <div className={styles.container}>
+        <div className={styles.sectionHeader}>
+          <h2 id="developers-title" className={styles.sectionTitle}>
+            Developer Articles
+          </h2>
+          <p className={styles.developerSubtitle}>
+            Articles and reflections from the AReaL developer community.
+          </p>
+        </div>
+        <ul className={styles.developerArticleList}>
+          {developerArticles.slice(0, 6).map(renderArticle)}
+        </ul>
+        {developerArticles.length > 6 && (
+          <details className={styles.developerMore}>
+            <summary>
+              <span className={styles.developerExpand}>
+                View all articles ({developerArticles.length})
+              </span>
+              <span className={styles.developerCollapse}>Show fewer articles</span>
+            </summary>
+            <ul className={styles.developerArticleList}>
+              {developerArticles.slice(6).map(renderArticle)}
+            </ul>
+          </details>
+        )}
+      </div>
+    </section>
+  );
+}
+
 function ResearchSection(): ReactNode {
   return (
     <section className={styles.section} id="research">
@@ -481,6 +538,7 @@ export default function Landing(): ReactNode {
       <Hero />
       <UseSection />
       <ResearchSection />
+      <DeveloperArticlesSection />
       <PartnersSection />
     </div>
   );
