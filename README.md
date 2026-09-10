@@ -40,10 +40,11 @@ pnpm serve     # or: npm run serve
 
 ```
 src/
-  components/Landing/   # Home page sections (Hero, Use, Research, Partners)
+  components/Landing/   # Home page sections (Hero, Use, Developers, Research, Partners)
   data/                 # JSON content that drives the home page
     publications.json   # Research Publications section
     partners.json       # Partner section
+    developerArticles.json # Developer article titles and external links
   pages/index.tsx       # Home page entry
 static/img/areal/       # Logos, paper thumbnails and other images
 docusaurus.config.ts    # Site config (title, navbar, footer, fonts)
@@ -51,7 +52,7 @@ docusaurus.config.ts    # Site config (title, navbar, footer, fonts)
 
 ## Updating the Home Page Content
 
-The **Research Publications** and **Partner** sections are data-driven — you can
+The **Research Publications**, **Partner**, and **Developer Articles** sections are data-driven — you can
 update them by editing JSON only, no code changes required. Changes appear
 automatically while `pnpm start` is running.
 
@@ -102,6 +103,27 @@ Edit [`src/data/partners.json`](src/data/partners.json). Each entry:
 
 Place new logos or thumbnails in `static/img/areal/`, then reference them in the
 JSON using a path relative to `static/` (e.g. `img/areal/my-image.png`).
+
+### 4. Add / edit a developer article
+
+Edit [`src/data/developerArticles.json`](src/data/developerArticles.json). Each
+entry contains only the original article title and its external URL:
+
+```json
+{
+  "title": "Actual article title",
+  "href": "https://zhuanlan.zhihu.com/p/2056107242672464530"
+}
+```
+
+The homepage displays entries in file order between **Use** and **Research**.
+Each title opens the original article in a new tab. Use a non-empty, verified
+title and an absolute HTTP(S) URL; site configuration validates these fields.
+Keep each URL unique. No thumbnail, summary, or site-hosted article is required.
+
+The first six entries are visible initially; additional entries can be expanded
+in place. Set the array to `[]` to hide both the section and its **Developers**
+navigation entry.
 
 ## Deployment
 
