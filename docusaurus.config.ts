@@ -40,7 +40,7 @@ const config: Config = {
   projectName: "AReaL", // Usually your repo name.
 
   onBrokenLinks: "throw",
-  // Landing sections (#use / #developers / #research / #partners) are runtime element IDs,
+  // Landing sections (#use / #research / #developers / #partners) are runtime element IDs,
   // not Docusaurus-generated heading anchors, so skip anchor validation for them.
   onBrokenAnchors: "ignore",
 
@@ -105,10 +105,10 @@ const config: Config = {
       },
       items: [
         { to: "/#use", label: "Use", position: "left" },
+        { to: "/#research", label: "Research", position: "left" },
         ...(developerArticles.length > 0
           ? [{ to: "/#developers", label: "Developers", position: "left" as const }]
           : []),
-        { to: "/#research", label: "Research", position: "left" },
         {
           href: "https://areal-ai.io/docs",
           label: "Docs",

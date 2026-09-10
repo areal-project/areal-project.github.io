@@ -40,7 +40,7 @@ pnpm serve     # or: npm run serve
 
 ```
 src/
-  components/Landing/   # Home page sections (Hero, Use, Developers, Research, Partners)
+  components/Landing/   # Home page sections (Hero, Use, Research, Developers, Partners)
   data/                 # JSON content that drives the home page
     publications.json   # Research Publications section
     partners.json       # Partner section
@@ -116,7 +116,7 @@ entry contains only the original article title and its external URL:
 }
 ```
 
-The homepage displays entries in file order between **Use** and **Research**.
+The homepage displays entries in file order between **Research** and **Partners**.
 Each title opens the original article in a new tab. Use a non-empty, verified
 title and an absolute HTTP(S) URL; site configuration validates these fields.
 Keep each URL unique. No thumbnail, summary, or site-hosted article is required.
