@@ -437,13 +437,9 @@ function DeveloperArticlesSection(): ReactNode {
     >
       <div className={styles.container}>
         <div className={styles.sectionHeader}>
-          <Heading
-            as="h2"
-            id="developers-title"
-            className={styles.sectionTitle}
-          >
+          <h2 id="developers-title" className={styles.sectionTitle}>
             Developer Articles
-          </Heading>
+          </h2>
           <p className={styles.developerSubtitle}>
             Articles and reflections from the AReaL developer community.
           </p>
@@ -541,8 +537,8 @@ export default function Landing(): ReactNode {
     <div className={styles.landing}>
       <Hero />
       <UseSection />
-      <DeveloperArticlesSection />
       <ResearchSection />
+      <DeveloperArticlesSection />
       <PartnersSection />
     </div>
   );
