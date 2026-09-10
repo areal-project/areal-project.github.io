@@ -1,6 +1,14 @@
 import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
+import developerArticles from "./src/data/developerArticles.json";
+
+for (const article of developerArticles) {
+  const url = new URL(article.href);
+  if (!article.title.trim() || !["http:", "https:"].includes(url.protocol)) {
+    throw new Error(`Invalid developer article: ${JSON.stringify(article)}`);
+  }
+}
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -32,7 +40,7 @@ const config: Config = {
   projectName: "AReaL", // Usually your repo name.
 
   onBrokenLinks: "throw",
-  // Landing sections (#use / #research / #partners) are runtime element IDs,
+  // Landing sections (#use / #developers / #research / #partners) are runtime element IDs,
   // not Docusaurus-generated heading anchors, so skip anchor validation for them.
   onBrokenAnchors: "ignore",
 
@@ -97,6 +105,9 @@ const config: Config = {
       },
       items: [
         { to: "/#use", label: "Use", position: "left" },
+        ...(developerArticles.length > 0
+          ? [{ to: "/#developers", label: "Developers", position: "left" as const }]
+          : []),
         { to: "/#research", label: "Research", position: "left" },
         {
           href: "https://areal-ai.io/docs",
