@@ -2,5 +2,9 @@
   {
     "title": "数据 exact match、Loss 都是 1.0，凭什么新引擎训崩了？",
     "href": "https://zhuanlan.zhihu.com/p/2056107242672464530"
+  },
+  {
+    "title": "只传 2% 的权重，为什么同步仍然可能很慢？",
+    "href": "https://zhuanlan.zhihu.com/p/2080327921844105284"
   }
 ]
